@@ -964,11 +964,14 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
 
 .sub-banner-flat__text {
   max-width: 720px;
+  margin-inline-start: auto;
+  margin-inline-end: 0;
   margin-inline: auto;
   font-size: clamp(14px, 1.3vw, 15px);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.88);
   padding-bottom: clamp(32px, 4vw, 48px);
+  text-align: left;
   
 }
 
