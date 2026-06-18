@@ -950,7 +950,7 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
 
 
 /* Sub-banner-flat */
-/.sub-banner-flat {
+.sub-banner-flat {
   margin-block-start: clamp(40px, 5vw, 64px);
   margin-inline: var(--gutter);
   background: var(--color-navy);
