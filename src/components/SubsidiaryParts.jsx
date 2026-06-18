@@ -50,16 +50,14 @@ export function SubOverview({ titleKey, textKey, bannerImg }) {
   return (
     <>
       <section className="section container">
-        <div className="sub-hero" style={{ paddingLinearStart: 0, paddingLinearEnd: 0, marginTop: 0, minHeight: 'auto', alignItems: 'start' }}>   //new add
+        <div className="two-col">
           <Reveal>
-            <div className="sub-hero__left">
-      <p className="eyebrow">{t('sub.overview')}</p>
-    </div>
+            <div>
+              <p className="eyebrow">{t('sub.overview')}</p>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div style={{ width: '100%', textAlign: 'left' }}>
-      <AccentText as="h2" className="two-col__title" text={t(titleKey)} />
-    </div>
+            <AccentText as="h2" className="two-col__title" text={t(titleKey)} />
           </Reveal>
         </div>
       </section>
