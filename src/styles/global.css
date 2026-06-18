@@ -549,7 +549,6 @@ html[dir='rtl'] .hero__title .accent { color: #fff; }
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
   margin-top: 56px;
-  text-align:left;
 }
 
 .feature-card {
@@ -576,7 +575,9 @@ html[dir='rtl'] .hero__title .accent { color: #fff; }
 .feature-card--overlay {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items: flex-start;
   padding: 28px;
   background-color: #f0f0f2;
   background-position: right center;
@@ -601,6 +602,7 @@ html[dir="rtl"] .feature-card--overlay::before {
   line-height: 1.45;
   max-width: 55%;
   z-index: 1;
+  text-align:left;
 }
 .feature-card__overlay-title .accent {
   font-weight: 700;
