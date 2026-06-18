@@ -48,7 +48,7 @@ export default function RealEstate() {
         titleKey="re.overview_title"
         textKey="re.overview_text"
         bannerImg="/images/realestate-banner.png"
-        style={{ textAlign: 'left' }} // <-- Text left align code just
+        
       />
 
       {/* SERVICES */}
