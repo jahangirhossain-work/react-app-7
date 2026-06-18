@@ -957,7 +957,7 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
   border-radius: var(--radius-xl);
   padding: clamp(32px, 4vw, 48px) clamp(32px, 5vw, 64px) 0;
   color: #fff;
-  text-align: left;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
