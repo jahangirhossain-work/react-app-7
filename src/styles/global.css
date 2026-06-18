@@ -957,21 +957,20 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
   border-radius: var(--radius-xl);
   padding: clamp(32px, 4vw, 48px) clamp(32px, 5vw, 64px) 0;
   color: #fff;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 720px);
 }
 
 .sub-banner-flat__text {
   max-width: 720px;
-  margin-inline-start: auto;
-  margin-inline-end: 0;
-  margin-inline: auto;
   font-size: clamp(14px, 1.3vw, 15px);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.88);
   padding-bottom: clamp(32px, 4vw, 48px);
   text-align: left;
+  grid-column: 2;
   
 }
 
@@ -980,6 +979,7 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
   margin-bottom: 0;
   height: clamp(160px, 22vw, 240px);
   overflow: hidden;
+  grid-column: 1 / -1;
 }
 
 .sub-banner-flat__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
