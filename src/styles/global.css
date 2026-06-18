@@ -549,6 +549,7 @@ html[dir='rtl'] .hero__title .accent { color: #fff; }
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
   margin-top: 56px;
+  text-align:left;
 }
 
 .feature-card {
