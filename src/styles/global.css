@@ -522,8 +522,8 @@ html[dir='rtl'] .hero__title .accent { color: #fff; }
 
 .two-col {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: clamp(32px, 6vw, 96px);
+  grid-template-columns: 1fr 1.6fr;
+  gap: clamp(32px, 5vw, 80px);
   align-items: start;
 }
 
