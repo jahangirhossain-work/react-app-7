@@ -692,6 +692,7 @@ html[dir="rtl"] .feature-card--overlay::before {
   transition: all 0.45s var(--ease);
   position: relative;
   overflow: hidden;
+  align-items: flex-start;
 }
 .company-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 
