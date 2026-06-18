@@ -1576,8 +1576,7 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
 /* =========================================================
    Values
    ========================================================= */
-
-.values {
+    .values {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: clamp(32px, 5vw, 64px);
@@ -1648,67 +1647,21 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   font-weight: 600;
   line-height: 1.3;
   color: #fff;
+  transition: color 0.4s var(--ease); /* Makes text color change smoothly */
 }
-.value-card__quote .accent { color: #fff; font-weight: 700; }
+.value-card__quote .accent { color: #fff; font-weight: 700; transition: color 0.4s var(--ease); }
 html[dir='rtl'] .value-card__quote .accent { color: #fff; font-weight: 700; }
 
-/* =========================================================
-   About hero
-   ========================================================= */
-
-.about-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(32px, 5vw, 56px);
-  align-items: center;
+/* ==========================================================================
+   NEW CODE: LAST CARD (QUOTE CARD) HOVER EFFECT
+   ========================================================================== */
+.value-card--quote:hover {
+  background: #fff !important; /* Turns background white */
 }
 
-.about-hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  font-weight: 500;
-  margin-bottom: 32px;
-}
-
-.about-hero__desc { font-size: 15px; color: var(--color-text-muted); line-height: 1.8; }
-
-.about-hero__image {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  aspect-ratio: 5 / 4;
-}
-
-.about-hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease);
-}
-.about-hero__image:hover img { transform: scale(1.05); }
-
-/* =========================================================
-   Page intro
-   ========================================================= */
-
-.page-intro {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 48px;
-}
-
-/* =========================================================
-   Reduced motion
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+.value-card--quote:hover .value-card__quote,
+.value-card--quote:hover .value-card__quote .accent {
+  color: var(--color-navy) !important; /* Turns text dark blue */
 }
 
 /* =========================================================
