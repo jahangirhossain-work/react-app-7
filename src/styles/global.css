@@ -951,61 +951,58 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
 
 /* Sub-banner-flat */
 /* =========================================================
-   Sub-banner-flat — 100% Exact Image Match
+   Sub-banner-flat — 100% EXACT MATCH TO image_0c8a7f.png
    ========================================================= */
 
 .sub-banner-flat {
-  margin-block-start: clamp(60px, 8vw, 100px);
-  background: var(--color-navy); /* Full width flat navy background */
+  margin-block-start: clamp(40px, 5vw, 64px);
+  background: var(--color-navy); /* Full width flat dark blue background */
   color: #fff;
   position: relative;
   padding-block: clamp(48px, 6vw, 80px) 0;
-  /* Removed border-radius and margin-inline to force 100% full-width */
+  width: 100%;
 }
 
 .sub-banner-flat__text {
-  max-width: var(--max-w);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-  /* Changed from center to left to match the image layout alignment precisely */
-  text-align: left; 
+  width: 100%;
+  max-width: var(--max-w);       /* Forces text into the global grid width */
+  margin-inline: auto;          /* Centers the content window */
+  padding-inline: var(--gutter);  /* Standard page gutter spacing */
+  text-align: left;             /* Flushes the text to the exact left grid border */
   font-size: clamp(14px, 1.3vw, 15px);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.88);
+  box-sizing: border-box;
+  margin-bottom: clamp(32px, 4vw, 48px); /* Gap between text and image */
 }
 
-/* Add this wrapper constraint if needed, or apply directly to the layout text element */
+/* RTL Support to flip alignment automatically for Arabic */
 html[dir='rtl'] .sub-banner-flat__text {
   text-align: right;
 }
 
 .sub-banner-flat__image {
-  /* Creates the floating rounded card grid margins matching the design spec */
-  max-width: var(--max-w);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-  height: clamp(220px, 30vw, 400px);
+  width: 100%;
+  max-width: var(--max-w);       /* Matches the text container block width exactly */
+  margin-inline: auto;          /* Centers the image wrapper context */
+  padding-inline: var(--gutter);  /* Matches the text padding constraint perfectly */
+  height: clamp(200px, 28vw, 360px);
+  box-sizing: border-box;
   
-  /* Pulls the image container down halfway over the white section break */
-  margin-bottom: -80px; 
+  /* Pushes the image down past the flat navy background edge */
+  margin-bottom: -60px; 
   position: relative;
   z-index: 2;
 }
 
-/* This targets the actual image container element to clip the rounded corners precisely */
+/* Targets the actual image to handle corner rounding and shadows safely */
 .sub-banner-flat__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: var(--radius-xl); /* Smooth inner-image card corner masking */
+  border-radius: var(--radius-lg); /* Smooth card rounding seen in image_0c8a7f.png */
   box-shadow: var(--shadow-lg);
-}
-
-/* Ensure the layout block following this section has padding-top to account for the image overflow overlap */
-.sub-banner-flat + section,
-.sub-banner-flat + div {
-  padding-top: 100px;
 }
 
 /* =========================================================
