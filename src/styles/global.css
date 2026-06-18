@@ -950,61 +950,36 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
 
 
 /* Sub-banner-flat */
-/* =========================================================
-   Sub-banner-flat — 100% EXACT MATCH TO image_0c8a7f.png
-   ========================================================= */
-
-.sub-banner-flat {
+/.sub-banner-flat {
   margin-block-start: clamp(40px, 5vw, 64px);
-  background: var(--color-navy); /* Full width flat dark blue background */
+  margin-inline: var(--gutter);
+  background: var(--color-navy);
+  border-radius: var(--radius-xl);
+  padding: clamp(32px, 4vw, 48px) clamp(32px, 5vw, 64px) 0;
   color: #fff;
+  text-align: left;
   position: relative;
-  padding-block: clamp(48px, 6vw, 80px) 0;
-  width: 100%;
+  overflow: hidden;
 }
 
 .sub-banner-flat__text {
-  width: 100%;
-  max-width: var(--max-w);       /* Forces text into the global grid width */
-  margin-inline: auto;          /* Centers the content window */
-  padding-inline: var(--gutter);  /* Standard page gutter spacing */
-  text-align: left;             /* Flushes the text to the exact left grid border */
+  max-width: 720px;
+  margin-inline: auto;
   font-size: clamp(14px, 1.3vw, 15px);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.88);
-  box-sizing: border-box;
-  margin-bottom: clamp(32px, 4vw, 48px); /* Gap between text and image */
-}
-
-/* RTL Support to flip alignment automatically for Arabic */
-html[dir='rtl'] .sub-banner-flat__text {
-  text-align: right;
+  padding-bottom: clamp(32px, 4vw, 48px);
+  
 }
 
 .sub-banner-flat__image {
-  width: 100%;
-  max-width: var(--max-w);       /* Matches the text container block width exactly */
-  margin-inline: auto;          /* Centers the image wrapper context */
-  padding-inline: var(--gutter);  /* Matches the text padding constraint perfectly */
-  height: clamp(200px, 28vw, 360px);
-  box-sizing: border-box;
-  
-  /* Pushes the image down past the flat navy background edge */
-  margin-bottom: -60px; 
-  position: relative;
-  z-index: 2;
+  margin-inline: calc(-1 * clamp(32px, 5vw, 64px));
+  margin-bottom: 0;
+  height: clamp(160px, 22vw, 240px);
+  overflow: hidden;
 }
 
-/* Targets the actual image to handle corner rounding and shadows safely */
-.sub-banner-flat__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: var(--radius-lg); /* Smooth card rounding seen in image_0c8a7f.png */
-  box-shadow: var(--shadow-lg);
-}
-
+.sub-banner-flat__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* =========================================================
    Services
    ========================================================= */
