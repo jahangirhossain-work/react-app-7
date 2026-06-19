@@ -23,11 +23,11 @@ export default function RealEstate() {
   ];
 
   const brokerageServices = [
-    { Icon: KeyIcon, t_key: 're.brk.sales_t', d_key: 're.brk.sales_d' },
-    { Icon: TrendingUpIcon, t_key: 're.brk.investment_t', d_key: 're.brk.investment_d' },
-    { Icon: TargetIcon, t_key: 're.brk.marketing_t', d_key: 're.brk.marketing_d' },
-    { Icon: BuildingIcon, t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
-    { Icon: BuildingIcon, t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
+    { Icon: '/icons/re-brokerage/Group.svg', t_key: 're.brk.sales_t', d_key: 're.brk.sales_d' },
+    { Icon: '/icons/re-brokerage/Group-1.svg', t_key: 're.brk.investment_t', d_key: 're.brk.investment_d' },
+    { Icon: '/icons/re-brokerage/Group-2.svg', t_key: 're.brk.marketing_t', d_key: 're.brk.marketing_d' },
+    { Icon: '/icons/re-brokerage/Group-3.svg', t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
+    { Icon: '/icons/re-brokerage/Group-4.svg', t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
   ];
 
   const tabContent = {
@@ -102,10 +102,16 @@ export default function RealEstate() {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.3 }}
               >
-                <StaggerGroup className="services-grid">
+               <StaggerGroup className="services-grid">
                   {tabContent[tab].map(({ Icon, t_key, d_key }, i) => (
                     <StaggerItem key={t_key} className="service-card">
-                      <div className="service-card__icon"><Icon /></div>
+                      <div className="service-card__icon">
+                        {typeof Icon === 'string' ? (
+                          <img src={Icon} alt="" />
+                        ) : (
+                          <Icon />
+                        )}
+                      </div>
                       <p className="service-card__num">{String(i + 1).padStart(2, '0')}.</p>
                       <h4 className="service-card__title">{t(t_key)}</h4>
                       <p className="service-card__desc">{t(d_key)}</p>
