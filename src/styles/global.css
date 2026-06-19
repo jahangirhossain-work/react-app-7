@@ -1950,6 +1950,13 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
    About page — Hero (text only, no side image)
    ========================================================= */
 
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Left column for eyebrow, right column for text */
+  gap: clamp(32px, 5vw, 64px);   /* Uses your design system's spacing variable */
+  align-items: start;
+}
+
 .about-hero-text {
   max-width: 720px;
 }
@@ -1959,7 +1966,6 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
   line-height: 1.1;
   margin-block: 16px 24px;
   font-weight: 500;
-  text-align: right;
 }
 
 .about-hero-text__desc {
@@ -1967,7 +1973,6 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
   color: var(--color-text-muted);
   line-height: 1.75;
   max-width: 64ch;
-  text-align: right;
 }
 
 /* =========================================================

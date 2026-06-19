@@ -33,20 +33,29 @@ export default function About() {
 
   return (
     <div className="about-page">
-      {/* HERO TITLE — text only, full width */}
-      <section className="section container">
-        <div className="about-hero-text">
-          <Reveal>
-            <p className="eyebrow">{t('about.eyebrow')}</p>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <AccentText as="h1" className="about-hero-text__title" text={t('about.title')} />
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="about-hero-text__desc">{t('about.desc')}</p>
-          </Reveal>
-        </div>
-      </section>
+      {/* HERO TITLE — Split Layout Grid */}
+<section className="section container">
+  <div className="about-hero">
+    
+    {/* Left Side Column */}
+    <div>
+      <Reveal>
+        <p className="eyebrow">{t('about.eyebrow')}</p>
+      </Reveal>
+    </div>
+
+    {/* Right Side Column */}
+    <div className="about-hero-text">
+      <Reveal delay={0.05}>
+        <AccentText as="h1" className="about-hero-text__title" text={t('about.title')} />
+      </Reveal>
+      <Reveal delay={0.15}>
+        <p className="about-hero-text__desc">{t('about.desc')}</p>
+      </Reveal>
+    </div>
+
+  </div>
+</section>
 
       {/* IMAGE BANNER + MISSION — connected rounded card (image top, navy bottom) */}
       <Reveal>
