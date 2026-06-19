@@ -2010,7 +2010,7 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
 }
 
 .about-mission-banner__label {
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 500;
 }
@@ -2025,5 +2025,6 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
   .about-mission-banner__content {
     grid-template-columns: 1fr;
     gap: 12px;
+    padding: 32px 24px; /* Optional: snugger padding for mobile screens */
   }
 }
