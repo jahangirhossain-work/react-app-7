@@ -1962,7 +1962,7 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
 }
 
 .about-hero-text__title {
-  font-size: clamp(32px, 4.5vw, 56px);
+  font-size: clamp(32px, 4.5vw, 44px);
   line-height: 1.1;
   margin-block: 16px 24px;
   font-weight: 500;
