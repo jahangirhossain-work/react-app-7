@@ -26,7 +26,7 @@ export default function RealEstate() {
     { Icon: '/icons/re-brokerage/Group.svg', t_key: 're.brk.sales_t', d_key: 're.brk.sales_d' },
     { Icon: '/icons/re-brokerage/Group-1.svg', t_key: 're.brk.investment_t', d_key: 're.brk.investment_d' },
     { Icon: '/icons/re-brokerage/Group-2.svg', t_key: 're.brk.marketing_t', d_key: 're.brk.marketing_d' },
-    { Icon: '/icons/re-brokerage/Group-3.svg', t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
+    { Icon: '/icons/re-brokerage/Group-3.svg', t_key: 're.brk.management_t', d_key: 're.brk.management_d' },
     { Icon: '/icons/re-brokerage/Group-4.svg', t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
   ];
 
