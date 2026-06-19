@@ -1985,12 +1985,22 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
   overflow: hidden;
   background: var(--color-navy);
   position: relative;
+  /* Creates space at the top so the image can overflow into the white area */
+  margin-top: 180px;
 }
 
 .about-mission-banner__image {
   width: 100%;
-  height: clamp(340px, 42vw, 520px);
+  height: 360px; /* Fixed height to make calculations perfectly accurate */
   overflow: hidden;
+  position: relative;
+  z-index: 2;
+
+  /* FIX: Pushes the image exactly halfway (180px) up out of the navy box */
+  margin-top: -180px; 
+  
+  /* Adds rounded corners to match the outer banner */
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 .about-mission-banner__image img {
@@ -2006,7 +2016,7 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
   grid-template-columns: 0.6fr 1.4fr;
   gap: clamp(24px, 4vw, 56px);
   align-items: start;
-  padding: clamp(32px, 4vw, 56px) clamp(32px, 5vw, 64px);
+  padding: clamp(32px, 5vw, 64px) clamp(32px, 5vw, 64px);
   color: #fff;
 }
 
