@@ -1980,19 +1980,26 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
    ========================================================= */
 
 .about-mission-banner {
-  margin-inline: var(--gutter); /* Left and right small gaps */ 
+  margin-inline: var(--gutter);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  
   position: relative;
-  display: flex;
-  flex-direction: column;
+  /* Creates space at the top so the image can overflow into the white area */
+  margin-top: 180px;
 }
 
 .about-mission-banner__image {
   width: 100%;
-  height: clamp(240px, 30vw, 360px); /* Restores the perfect aspect ratio */ [cite: 267]
+  height: 360px; /* Fixed height to make calculations perfectly accurate */
   overflow: hidden;
   position: relative;
+  z-index: 2;
+
+  /* FIX: Pushes the image exactly halfway (180px) up out of the navy box */
+  margin-top: -180px; 
   
-  /* CRITICAL: Round ONLY the top-left and top-right corners */
+  /* Adds rounded corners to match the outer banner */
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
@@ -2005,34 +2012,24 @@ html[dir="rtl"] .sub-back-link:hover .sub-back-link__icon { transform: translate
 }
 
 .about-mission-banner__content {
-  background: var(--color-navy); /* Dark blue starts exactly here */ 
-  color: #fff;
-  
-  /* CRITICAL: Round ONLY the bottom-left and bottom-right corners */
-  border-radius: 0 0 var(--radius-xl) var(--radius-xl); 
-  
-  /* Layout Grid */
   display: grid;
-  grid-template-columns: 0.6fr 1.4fr; [cite: 268]
-  gap: clamp(24px, 4vw, 56px); [cite: 268]
-  align-items: start; [cite: 268]
-  
-  /* Generous padding inside the navy box */
-  padding: clamp(32px, 4vw, 56px) clamp(32px, 5vw, 64px); [cite: 268]
+  grid-template-columns: 0.6fr 1.4fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding: clamp(32px, 5vw, 64px) clamp(32px, 5vw, 64px);
+  color: #fff;
 }
 
 .about-mission-banner__label {
-  font-size: 13px; [cite: 269]
-  color: rgba(255, 255, 255, 0.6); [cite: 269]
-  font-weight: 500; [cite: 269]
-  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
 }
 
 .about-mission-banner__text {
-  font-size: clamp(14px, 1.4vw, 16px); [cite: 270]
-  line-height: 1.75; [cite: 270]
-  color: rgba(255, 255, 255, 0.92); [cite: 270]
-  margin: 0;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 @media (max-width: 768px) {
