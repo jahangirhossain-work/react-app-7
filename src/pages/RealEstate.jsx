@@ -27,6 +27,7 @@ export default function RealEstate() {
     { Icon: TrendingUpIcon, t_key: 're.brk.investment_t', d_key: 're.brk.investment_d' },
     { Icon: TargetIcon, t_key: 're.brk.marketing_t', d_key: 're.brk.marketing_d' },
     { Icon: BuildingIcon, t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
+    { Icon: BuildingIcon, t_key: 're.brk.valuation_t', d_key: 're.brk.valuation_d' },
   ];
 
   const tabContent = {
