@@ -31,9 +31,17 @@ export default function FM() {
   ];
 
   const specializedServices = [
-    { Icon: FlameIcon, t_key: 'fm.svc.fire_t', d_key: 'fm.svc.fire_d' },
+    { Icon: FlameIcon, t_key: 'fm.svc.elevator_t', d_key: 'fm.svc.elevator_d' },
     { Icon: ShieldIcon, t_key: 'fm.svc.security_t', d_key: 'fm.svc.security_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.bms_t', d_key: 'fm.svc.bms_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.fire_t', d_key: 'fm.svc.fire_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.swimming_t', d_key: 'fm.svc.swimming_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.manpower_t', d_key: 'fm.svc.manpower_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.contracts_t', d_key: 'fm.svc.contracts_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.light_t', d_key: 'fm.svc.light_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.ups_t', d_key: 'fm.svc.ups_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.generator_t', d_key: 'fm.svc.generator_d' },
+    { Icon: BuildingIcon, t_key: 'fm.svc.reception_t', d_key: 'fm.svc.reception_d' },
+            
   ];
 
   const tabContent = {

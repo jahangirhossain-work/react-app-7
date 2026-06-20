@@ -221,12 +221,30 @@ export const translations = {
     'fm.svc.hvac_d':'provide inspection, maintenance, routine servicing, and repair of HVAC systems to ensure a comfortable indoor environment, improve energy efficiency, and extend the systems operational lifespan',
     'fm.svc.civil_t':'Civil & Structural Maintenance',
     'fm.svc.civil_d':'Maintaining building structures, finishes, and general civil works, including minor repairs, structural inspections, and restoration of damaged elements to preserve the buildings integrity and overall appearance ',
-    'fm.svc.fire_t': 'Fire Safety Systems',
-    'fm.svc.fire_d': 'Installation, inspection, and maintenance of fire detection, suppression, and emergency response systems.',
-    'fm.svc.security_t': 'Security & Access Control',
-    'fm.svc.security_d': 'Modern security systems including CCTV, access control, and intrusion detection for complete protection.',
-    'fm.svc.bms_t': 'Building Management Systems',
-    'fm.svc.bms_d': 'Smart BMS integration for centralized control of HVAC, lighting, and energy across the entire facility.',
+    'fm.svc.elevator_t': 'Elevator & Escalator Maintenance',
+    'fm.svc.elevator_d': 'Routine and emergency maintenance services to ensure the efficiency and safety of elevators and escalators in accordance with approved technical standard',
+    'fm.svc.security_t': 'Security & Guarding Services',
+    'fm.svc.security_d': 'Provision of trained security personnel and advanced surveillance systems to ensure the safety of people and assets',
+    'fm.svc.fire_t': 'Fire Protection & Alarm Systems',
+    'fm.svc.fire_d': 'Design, installation, and maintenance of fire protection and alarm systems in accordance with the highest safety standards',
+    'fm.svc.swimming_t': 'Swimming Pools & Water Features',
+    'fm.svc.swimming_d': 'Design, construction, and maintenance of pools and water features to ensure high performance and visual appeal',
+    'fm.svc.manpower_t': 'Manpower & Equipment Supply (Light / Heavy)',
+    'fm.svc.manpower_d': 'Provision of skilled labor and a wide range of equipment to support projects and operations with high efficiency',
+    'fm.svc.contracts_t': 'Contracts & Subcontractor Management Services',
+    'fm.svc.contracts_d': 'Comprehensive management of contracts and subcontractors to ensure work is executed to the highest standards, with continuous performance monitoring and adherence to timelines and budgets',
+    'fm.svc.light_t': 'Light Construction Works',
+    'fm.svc.light_d': 'Execution of light construction works and interior modifications efficiently to meet the needs of operational and commercial sites.',
+    'fm.svc.ups_t': 'UPS Systems & Data Centers (Supply & Maintenance)',
+    'fm.svc.ups_d': 'Supply and maintenance of backup power systems and data centers to ensure operational stability and protect sensitive equipment.',
+    'fm.svc.generator_t': 'Generators (Supply & Maintenance)',
+    'fm.svc.generator_d': 'Supply and maintenance of generators to ensure continuous power availability under all operating conditions.',
+    'fm.svc.reception_t': 'Reception & Support Services',
+    'fm.svc.reception_d': 'Delivery of reception and administrative support services that reflect professionalism and enhance visitor and customer experience.',
+
+    
+    
+
 
     // Real Estate
     're.eyebrow': 'Utility Real Estate.',
