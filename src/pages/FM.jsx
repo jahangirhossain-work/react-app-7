@@ -23,8 +23,10 @@ export default function FM() {
   ];
 
   const maintenanceServices = [
-    { Icon: ZapIcon, t_key: 'fm.svc.electrical_t', d_key: 'fm.svc.electrical_d' },
-    { Icon: FanIcon, t_key: 'fm.svc.mechanical_t', d_key: 'fm.svc.mechanical_d' },
+    { Icon: ZapIcon, t_key: 'fm.svc.mechanical_t', d_key: 'fm.svc.mechanical_d' },
+    { Icon: FanIcon, t_key: 'fm.svc.electrical_t', d_key: 'fm.svc.electrical_d' },
+    { Icon: SettingsIcon, t_key: 'fm.svc.plumbing_t', d_key: 'fm.svc.plumbing_d' },
+    { Icon: SettingsIcon, t_key: 'fm.svc.hvac_t', d_key: 'fm.svc.hvac_d' },
     { Icon: SettingsIcon, t_key: 'fm.svc.civil_t', d_key: 'fm.svc.civil_d' },
   ];
 
