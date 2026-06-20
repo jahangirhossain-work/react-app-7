@@ -52,7 +52,6 @@ html[dir='rtl'] {
   --font-display: 'IBM Plex Sans Arabic', 'Montserrat', system-ui, sans-serif;
   --font-body: 'IBM Plex Sans Arabic', 'Montserrat', system-ui, sans-serif;
   --font-serif: 'IBM Plex Sans Arabic', 'Montserrat', system-ui, sans-serif;
-   text-align: right;
 }
 
 /* =========================================================
@@ -925,15 +924,6 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
   margin-bottom: 28px;
   max-width: 38ch;
 }
-
-
-
-html[dir='rtl'] .sub-hero__desc {
-  text-align: right;
-  margin-inline-start: auto;
-  margin-inline-end: 0;
-}
-
 .sub-hero__media {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -1588,6 +1578,15 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   font-size: clamp(15px, 1.5vw, 17px);
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
+}
+
+
+html[dir='rtl'] .mission-banner__inner {
+  grid-template-columns: 1.4fr 0.6fr; /* Swaps columns to place the text on the right side */
+}
+
+html[dir='rtl'] .mission-banner__text {
+  text-align: right; /* Aligns paragraph text to the right side */
 }
 
 /* =========================================================
