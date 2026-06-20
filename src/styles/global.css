@@ -1131,7 +1131,7 @@ html[dir='rtl'] .services-arrows button svg { transform: scaleX(-1); }
 
 .materials {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 0.5fr 1.7fr;
   gap: clamp(32px, 5vw, 64px);
   margin-top: 48px;
 }
