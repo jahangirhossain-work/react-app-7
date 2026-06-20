@@ -52,6 +52,7 @@ html[dir='rtl'] {
   --font-display: 'IBM Plex Sans Arabic', 'Montserrat', system-ui, sans-serif;
   --font-body: 'IBM Plex Sans Arabic', 'Montserrat', system-ui, sans-serif;
   --font-serif: 'IBM Plex Sans Arabic', 'Montserrat', system-ui, sans-serif;
+   text-align: right; //new add
 }
 
 /* =========================================================
@@ -608,6 +609,10 @@ html[dir="rtl"] .feature-card--overlay::before {
   font-weight: 700;
   color: var(--color-navy);
 }
+//new add
+html[dir='rtl'] .feature-card__overlay-title {
+  text-align: right;
+}
 
 .feature-card--dark { background: var(--color-navy); color: #fff; }
 .feature-card--dark .feature-card__title { color: #fff; }
@@ -919,6 +924,14 @@ html[dir='rtl'] .office-card__phone { justify-content: flex-end; }
   line-height: 1.7;
   margin-bottom: 28px;
   max-width: 38ch;
+}
+
+///new add
+
+html[dir='rtl'] .sub-hero__desc {
+  text-align: right;
+  margin-inline-start: auto;
+  margin-inline-end: 0;
 }
 
 .sub-hero__media {
