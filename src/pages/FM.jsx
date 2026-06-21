@@ -127,7 +127,9 @@ export default function FM() {
                 <StaggerGroup className="services-grid">
                   {tabContent[tab].map(({ Icon, t_key, d_key }, i) => (
                     <StaggerItem key={t_key} className="service-card">
-                      <div className="service-card__icon"><Icon /></div>
+                       <div className="service-card__icon">
+        <img src={Icon} alt="" width={24} height={24} />
+      </div>
                       <p className="service-card__num">{String(i + 1).padStart(2, '0')}.</p>
                       <h4 className="service-card__title">{t(t_key)}</h4>
                       <p className="service-card__desc">{t(d_key)}</p>
