@@ -15,32 +15,32 @@ export default function FM() {
   const [tab, setTab] = useState('light');
 
   const lightServices = [
-    { Icon: CleaningIcon, t_key: 'fm.svc.cleaning_t', d_key: 'fm.svc.cleaning_d' },
-    { Icon: TrashIcon, t_key: 'fm.svc.waste_t', d_key: 'fm.svc.waste_d' },
-    { Icon: DropIcon, t_key: 'fm.svc.water_t', d_key: 'fm.svc.water_d' },
-    { Icon: BugIcon, t_key: 'fm.svc.pest_t', d_key: 'fm.svc.pest_d' },
-    { Icon: LeafIcon, t_key: 'fm.svc.landscape_t', d_key: 'fm.svc.landscape_d' },
+    { Icon: '/icons/re-brokerage/Frame-1.svg', t_key: 'fm.svc.cleaning_t', d_key: 'fm.svc.cleaning_d' },
+    { Icon: '/icons/re-brokerage/Frame-2.svg', t_key: 'fm.svc.waste_t', d_key: 'fm.svc.waste_d' },
+    { Icon: '/icons/re-brokerage/Frame-3.svg', t_key: 'fm.svc.water_t', d_key: 'fm.svc.water_d' },
+    { Icon: '/icons/re-brokerage/Frame-4.svg', t_key: 'fm.svc.pest_t', d_key: 'fm.svc.pest_d' },
+    { Icon: '/icons/re-brokerage/Frame-5.svg', t_key: 'fm.svc.landscape_t', d_key: 'fm.svc.landscape_d' },
   ];
 
   const maintenanceServices = [
-    { Icon: ZapIcon, t_key: 'fm.svc.mechanical_t', d_key: 'fm.svc.mechanical_d' },
-    { Icon: FanIcon, t_key: 'fm.svc.electrical_t', d_key: 'fm.svc.electrical_d' },
-    { Icon: SettingsIcon, t_key: 'fm.svc.plumbing_t', d_key: 'fm.svc.plumbing_d' },
-    { Icon: SettingsIcon, t_key: 'fm.svc.hvac_t', d_key: 'fm.svc.hvac_d' },
-    { Icon: SettingsIcon, t_key: 'fm.svc.civil_t', d_key: 'fm.svc.civil_d' },
+    { Icon: '/icons/re-brokerage/Group.svg', t_key: 'fm.svc.mechanical_t', d_key: 'fm.svc.mechanical_d' },
+    { Icon: '/icons/re-brokerage/Group-1.svg', t_key: 'fm.svc.electrical_t', d_key: 'fm.svc.electrical_d' },
+    { Icon: '/icons/re-brokerage/Group-2.svg', t_key: 'fm.svc.plumbing_t', d_key: 'fm.svc.plumbing_d' },
+    { Icon: '/icons/re-brokerage/Group-3.svg', t_key: 'fm.svc.hvac_t', d_key: 'fm.svc.hvac_d' },
+    { Icon: '/icons/re-brokerage/Group-4.svg', t_key: 'fm.svc.civil_t', d_key: 'fm.svc.civil_d' },
   ];
 
   const specializedServices = [
-    { Icon: FlameIcon, t_key: 'fm.svc.elevator_t', d_key: 'fm.svc.elevator_d' },
-    { Icon: ShieldIcon, t_key: 'fm.svc.security_t', d_key: 'fm.svc.security_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.fire_t', d_key: 'fm.svc.fire_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.swimming_t', d_key: 'fm.svc.swimming_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.manpower_t', d_key: 'fm.svc.manpower_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.contracts_t', d_key: 'fm.svc.contracts_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.light_t', d_key: 'fm.svc.light_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.ups_t', d_key: 'fm.svc.ups_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.generator_t', d_key: 'fm.svc.generator_d' },
-    { Icon: BuildingIcon, t_key: 'fm.svc.reception_t', d_key: 'fm.svc.reception_d' },
+    { Icon: '/icons/re-brokerage/Group.svg', t_key: 'fm.svc.elevator_t', d_key: 'fm.svc.elevator_d' },
+    { Icon: '/icons/re-brokerage/Group-1.svg', t_key: 'fm.svc.security_t', d_key: 'fm.svc.security_d' },
+    { Icon: '/icons/re-brokerage/Group-2.svg', t_key: 'fm.svc.fire_t', d_key: 'fm.svc.fire_d' },
+    { Icon: '/icons/re-brokerage/Group-3.svg', t_key: 'fm.svc.swimming_t', d_key: 'fm.svc.swimming_d' },
+    { Icon: '/icons/re-brokerage/Group-4.svg', t_key: 'fm.svc.manpower_t', d_key: 'fm.svc.manpower_d' },
+    { Icon: '/icons/re-brokerage/Group-5.svg', t_key: 'fm.svc.contracts_t', d_key: 'fm.svc.contracts_d' },
+    { Icon: '/icons/re-brokerage/Group-6.svg', t_key: 'fm.svc.light_t', d_key: 'fm.svc.light_d' },
+    { Icon: '/icons/re-brokerage/Group.svg-7', t_key: 'fm.svc.ups_t', d_key: 'fm.svc.ups_d' },
+    { Icon: '/icons/re-brokerage/Group-8.svg', t_key: 'fm.svc.generator_t', d_key: 'fm.svc.generator_d' },
+    { Icon: '/icons/re-brokerage/Group-9.svg', t_key: 'fm.svc.reception_t', d_key: 'fm.svc.reception_d' },
             
   ];
 
