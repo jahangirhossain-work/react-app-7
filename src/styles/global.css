@@ -1555,42 +1555,35 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
    Mission Banner
    ========================================================================== */
 
+/* ==========================================================================
+   Mission Banner - Exact Match
+   ========================================================================== */
+
 .about-mission-banner {
   margin-block-start: clamp(40px, 5vw, 64px);
   background: var(--color-navy);
   color: #fff;
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 24px; /* Creates the outer rounded card effect */
+  padding: 24px 24px 0 24px; /* Pushes the image slightly inward to mimic the mockup spacing */
 }
 
-/* Forcefully expand this container vertically */
 .about-mission-banner__image {
-  width: 100% !important;
-  /* Use a wider aspect-ratio or an explicit height to scale it upward */
-  height: 420px !important; /* Increase this to 450px or 500px if you want it even larger */
-  position: relative !important;
-  overflow: hidden !important;
+  width: 100%;
+  /* Controls the exact height ratio of the image section. 
+     Lowering the second number (e.g., 21 / 7) makes it taller. */
+  aspect-ratio: 21 / 8; 
+  border-radius: 18px; /* Smooth rounded corners inside the card */
+  overflow: hidden;
 }
 
-/* Ensure the image stretches and fills the container space properly */
 .about-mission-banner__image img {
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-  object-fit: cover !important;
-  object-position: center 25% !important; /* Adjusts framing so the focal point moves up nicely */
-}
-
-.about-mission-banner::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  inset-inline-end: -100px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(238, 72, 35, 0.18), transparent 70%);
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center; /* Keeps the laptop and person perfectly centered */
 }
 
 /* This handles the 2-column layout for the text underneath the image */
@@ -1618,7 +1611,6 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
 }
-
 /* =========================================================
    Values
    ========================================================= */

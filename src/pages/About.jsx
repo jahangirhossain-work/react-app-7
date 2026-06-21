@@ -57,11 +57,11 @@ export default function About() {
   </div>
 </section>
 
-{/* IMAGE BANNER + MISSION - connected rounded card (image top, navy bottom) */}
+{/* IMAGE BANNER + MISSION - connected rounded card */}
 <Reveal>
   <div className="about-mission-banner">
     <div className="about-mission-banner__image">
-      <img src="/images/about-us-banner.png" alt="Our Mission Banner" />
+      <img src="/images/about-us-banner.png" alt="Our Mission" />
     </div>
     <div className="about-mission-banner__content on-dark">
       <p className="about-mission-banner__label">{t('about.mission_label')}</p>
