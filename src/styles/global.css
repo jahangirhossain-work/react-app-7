@@ -1551,13 +1551,6 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
 /* ==========================================================================
    Mission Banner
    ========================================================================== */
-/* ==========================================================================
-   Mission Banner
-   ========================================================================== */
-
-/* ==========================================================================
-   Mission Banner - Exact Match
-   ========================================================================== */
 
 .about-mission-banner {
   margin-block-start: clamp(40px, 5vw, 64px);
@@ -1565,25 +1558,33 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   color: #fff;
   position: relative;
   overflow: hidden;
-  border-radius: 24px; /* Creates the outer rounded card effect */
-  padding: 24px 24px 0 24px; /* Pushes the image slightly inward to mimic the mockup spacing */
+  border-radius: 24px; /* Creates the rounded card effect from the mockup */
 }
-
+/* 1. Added explicit control over the image wrapper size */
 .about-mission-banner__image {
   width: 100%;
-  /* Controls the exact height ratio of the image section. 
-     Lowering the second number (e.g., 21 / 7) makes it taller. */
-  aspect-ratio: 21 / 8; 
-  border-radius: 18px; /* Smooth rounded corners inside the card */
+  height: 500px; /* INCREASE THIS VALUE (e.g., 350px, 400px) to make the top image taller */
   overflow: hidden;
+  position: relative;
 }
 
 .about-mission-banner__image img {
   width: 100%;
-  height: 100%;
+  height:100%;
   display: block;
   object-fit: cover;
-  object-position: center center; /* Keeps the laptop and person perfectly centered */
+  object-position: center; /* Keeps the laptop and person centered */
+}
+
+.about-mission-banner::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  inset-inline-end: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(238, 72, 35, 0.18), transparent 70%);
+  pointer-events: none;
 }
 
 /* This handles the 2-column layout for the text underneath the image */
@@ -1611,6 +1612,7 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
 }
+
 /* =========================================================
    Values
    ========================================================= */
