@@ -1545,10 +1545,9 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   margin-block-start: clamp(40px, 5vw, 64px);
   background: var(--color-navy);
   color: #fff;
-  padding: clamp(40px, 5vw, 64px) var(--gutter);
+  padding: 100px var(--gutter) clamp(40px, 5vw, 64px);
   position: relative;
-  overflow: hidden;
-  padding-top: 0;
+  overflow: visible;
 }
 
 .mission-banner::before {
@@ -1585,7 +1584,7 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
 .mission-banner__image {
   max-width: var(--max-w);
   margin-inline: auto;
-  margin-top: -100px; /* This creates the overlap effect */
+  margin-top: -200px; /* This creates the overlap effect */
   margin-bottom: 40px; /* Space between image and text */
 }
 
