@@ -1541,16 +1541,26 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
    Mission Banner
    ========================================================= */
 
-.mission-banner {
+/* ==========================================================================
+   Mission Banner
+   ========================================================================== */
+
+.about-mission-banner {
   margin-block-start: clamp(40px, 5vw, 64px);
   background: var(--color-navy);
   color: #fff;
-  padding: clamp(40px, 5vw, 64px) var(--gutter);
   position: relative;
   overflow: hidden;
+  border-radius: 24px; /* Creates the rounded card effect from the mockup */
 }
 
-.mission-banner::before {
+.about-mission-banner__image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.about-mission-banner::before {
   content: '';
   position: absolute;
   top: -100px;
@@ -1561,7 +1571,8 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   pointer-events: none;
 }
 
-.mission-banner__inner {
+/* This handles the 2-column layout for the text underneath the image */
+.about-mission-banner__content {
   display: grid;
   grid-template-columns: 0.6fr 1.4fr;
   gap: clamp(24px, 5vw, 64px);
@@ -1570,16 +1581,21 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   z-index: 1;
   max-width: var(--max-w);
   margin-inline: auto;
+  padding: clamp(40px, 5vw, 64px) var(--gutter);
 }
 
-.mission-banner__label { font-size: 13px; color: rgba(255, 255, 255, 0.6); }
+.about-mission-banner__label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+}
 
-.mission-banner__text {
+.about-mission-banner__text {
   font-size: clamp(15px, 1.5vw, 17px);
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
 }
-
 
 /* =========================================================
    Values
