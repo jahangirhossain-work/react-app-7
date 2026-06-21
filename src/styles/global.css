@@ -1545,33 +1545,46 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
    Mission Banner
    ========================================================================== */
 
+/* Main wrapper containing the whole card */
 .about-mission-banner {
   margin-block-start: clamp(40px, 5vw, 64px);
   background: var(--color-navy);
   color: #fff;
   position: relative;
   overflow: hidden;
-  border-radius: 24px; /* Creates the rounded card effect from the mockup */
+  border-radius: 24px; /* Matches the outer curved banner shape */
 }
 
+/* Image container styling to achieve the floating look in image_085a5d.png */
+.about-mission-banner__image {
+  position: relative;
+  margin: 16px 16px 0 16px; /* Creates the white top/side margins showing the background */
+  border-radius: 20px; /* Rounds the image container corners */
+  overflow: hidden;
+  aspect-ratio: 21 / 7; /* Adjust this ratio to lock the exact banner proportion */
+}
+
+/* The actual image */
 .about-mission-banner__image img {
   width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
 
-.about-mission-banner::before {
+/* The Dark Overlay Tint seen in image_085a5d.png */
+.about-mission-banner__image::after {
   content: '';
   position: absolute;
-  top: -100px;
-  inset-inline-end: -100px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(238, 72, 35, 0.18), transparent 70%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.5)); /* Blends image to navy */
   pointer-events: none;
 }
 
-/* This handles the 2-column layout for the text underneath the image */
+/* --- Keep the rest of your content layout the same --- */
 .about-mission-banner__content {
   display: grid;
   grid-template-columns: 0.6fr 1.4fr;
@@ -1581,14 +1594,13 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   z-index: 1;
   max-width: var(--max-w);
   margin-inline: auto;
-  padding: clamp(40px, 5vw, 64px) var(--gutter);
+  padding: clamp(32px, 4vw, 48px) var(--gutter);
 }
 
 .about-mission-banner__label {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 .about-mission-banner__text {
