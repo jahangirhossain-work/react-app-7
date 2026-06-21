@@ -57,18 +57,21 @@ export default function About() {
   </div>
 </section>
 
-      {/* IMAGE BANNER + MISSION — connected rounded card (image top, navy bottom) */}
-      <Reveal>
-        <div className="about-mission-banner">
-          <div className="about-mission-banner__image">
-            <img src="/images/about-us-banner.png" alt="" />
-          </div>
-          <div className="about-mission-banner__content on-dark">
-            <p className="about-mission-banner__label">{t('about.mission_label')}</p>
-            <p className="about-mission-banner__text">{t('about.mission_text')}</p>
-          </div>
-        </div>
-      </Reveal>
+    {/* MISSION BANNER */}
+<section className="mission-banner">
+  <div className="mission-banner__inner">
+    {/* Image container positioned to overlap */}
+    <div className="mission-banner__image-wrapper">
+      <img src="/images/about-us-banner.png" alt="Our Mission" />
+    </div>
+
+    {/* Content below the image */}
+    <div className="mission-banner__content">
+      <p className="mission-banner__label">{t('about.mission_label')}</p>
+      <p className="mission-banner__text">{t('about.mission_text')}</p>
+    </div>
+  </div>
+</section>
 
       {/* VALUES */}
       <section className="section container">

@@ -1548,6 +1548,7 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   padding: clamp(40px, 5vw, 64px) var(--gutter);
   position: relative;
   overflow: hidden;
+  padding-top: 0;
 }
 
 .mission-banner::before {
@@ -1578,6 +1579,21 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   font-size: clamp(15px, 1.5vw, 17px);
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
+}
+
+/* 2. Style the image container to pull it up */
+.mission-banner__image {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  margin-top: -100px; /* This creates the overlap effect */
+  margin-bottom: 40px; /* Space between image and text */
+}
+
+/* 3. Ensure the image is responsive and rounded */
+.mission-banner__image img {
+  width: 100%;
+  display: block;
+  border-radius: 20px; /* Matches the rounded corners in your design */
 }
 
 /* =========================================================
