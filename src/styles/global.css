@@ -1544,27 +1544,29 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
 /* ==========================================================================
    Mission Banner
    ========================================================================== */
+/* ==========================================================================
+   Mission Banner (Perfect Alignment Match)
+   ========================================================================== */
 
-/* Main wrapper containing the whole card */
 .about-mission-banner {
   margin-block-start: clamp(40px, 5vw, 64px);
-  background: var(--color-navy);
-  color: #fff;
   position: relative;
-  overflow: hidden;
-  border-radius: 24px; /* Matches the outer curved banner shape */
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  /* Removed background color and overflow here to prevent cutting the corners */
 }
 
-/* Image container styling to achieve the floating look in image_085a5d.png */
 .about-mission-banner__image {
   position: relative;
-  margin: 16px 16px 0 16px; /* Creates the white top/side margins showing the background */
-  border-radius: 20px; /* Rounds the image container corners */
+  width: 100%;
+  aspect-ratio: 24 / 7; /* Forces the exact slim banner height from image_0855c1.png */
+  border-radius: 24px; /* Distinct rounded corners for the inner image card */
   overflow: hidden;
-  aspect-ratio: 21 / 7; /* Adjust this ratio to lock the exact banner proportion */
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* The actual image */
 .about-mission-banner__image img {
   width: 100%;
   height: 100%;
@@ -1572,7 +1574,7 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   object-fit: cover;
 }
 
-/* The Dark Overlay Tint seen in image_085a5d.png */
+/* Dark elegant tint over the picture */
 .about-mission-banner__image::after {
   content: '';
   position: absolute;
@@ -1580,27 +1582,31 @@ html[dir='rtl'] .approach-item__title svg { transform: scaleX(-1); }
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.5)); /* Blends image to navy */
+  background: rgba(15, 23, 42, 0.25);
   pointer-events: none;
 }
 
-/* --- Keep the rest of your content layout the same --- */
+/* This is the navy background block that starts exactly halfway up the image */
 .about-mission-banner__content {
+  background: var(--color-navy);
+  margin-top: -60px; /* Pulls the navy card up behind the image */
+  padding-top: 100px; /* Balances the inner text spacing because of the negative margin */
+  padding-bottom: clamp(40px, 5vw, 64px);
+  padding-inline: var(--gutter);
+  border-radius: 24px; /* Matches the outer layout curvature */
+  
+  /* Text column layout */
   display: grid;
   grid-template-columns: 0.6fr 1.4fr;
   gap: clamp(24px, 5vw, 64px);
   align-items: start;
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-w);
-  margin-inline: auto;
-  padding: clamp(32px, 4vw, 48px) var(--gutter);
 }
 
 .about-mission-banner__label {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .about-mission-banner__text {
