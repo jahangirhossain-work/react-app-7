@@ -13,7 +13,6 @@ import {
 export default function Business() {
   const { t } = useLanguage();
   const [openId, setOpenId] = useState('oya');
-  const [activeTab, setActiveTab] = useState(0);
 
   const services = [
     { Icon: BuildingIcon, t: 'business.svc.01_t', d: 'business.svc.01_d' },
