@@ -10,9 +10,13 @@ import {
 } from '../components/Icons.jsx';
 
 export default function Business() {
-  // 1. Destructure "locale" (or whichever active language string your hook uses, e.g., 'en' / 'ar')
-  const { t, locale } = useLanguage();
+  // 1. Get everything available out of your custom language hook
+  const hookData = useLanguage();
+  const { t } = hookData;
   const [openId, setOpenId] = useState('oya');
+
+  // 2. Fallback checking: Identify what your hook actually calls the active language string
+  const activeLang = hookData.locale || hookData.language || hookData.currentLang || 'en';
 
   const services = [
     { Icon: BuildingIcon, t: 'business.svc.01_t', d: 'business.svc.01_d' },
@@ -26,7 +30,6 @@ export default function Business() {
     { Icon: WrenchIcon, t: 'business.svc.09_t', d: 'business.svc.09_d' },
   ];
 
-  // 2. Bilingual content entries added here matching image_a8ee10.png
   const expItems = [
     { 
       id: 'oya', 
@@ -187,7 +190,10 @@ export default function Business() {
             <div className="experience__list">
               {expItems.map((item, i) => {
                 const isOpen = openId === item.id;
-                const hasMetrics = !!item.growth; // Dynamic layout switcher check
+                const hasMetrics = !!item.growth;
+
+                // Absolute safety layout fallback resolution:
+                const determinedLang = (item.name[activeLang]) ? activeLang : 'en';
 
                 return (
                   <div key={item.id} className="exp-item">
@@ -197,10 +203,12 @@ export default function Business() {
                     >
                       <div className="exp-item__title">
                         <span className="exp-item__num">{String(i + 1).padStart(2, '0')}.</span>
-                        {/* 3. Uses active layout locale key here */}
-                        {item.name[locale]}
-                        {item.sub && item.sub[locale] && (
-                          <span className="exp-item__sub">{item.sub[locale]}</span>
+                        
+                        {/* Safe Key Resolution */}
+                        {item.name[determinedLang]}
+                        
+                        {item.sub && item.sub[determinedLang] && (
+                          <span className="exp-item__sub">{item.sub[determinedLang]}</span>
                         )}
                       </div>
                       
@@ -211,7 +219,7 @@ export default function Business() {
                             <small>{t('business.exp.growth')}</small>
                           </div>
                           <div className="exp-item__sector">
-                            <strong>{item.sectorRank[locale]}</strong>
+                            <strong>{item.sectorRank[determinedLang] || item.sectorRank.en}</strong>
                             <small>{t('business.exp.top_sector')}</small>
                           </div>
                         </>
@@ -229,8 +237,7 @@ export default function Business() {
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         >
                           <div className="exp-item__detail-inner">
-                            {/* 4. Display correct locale text on open accordion items */}
-                            {item.desc[locale]}
+                            {item.desc[determinedLang]}
                           </div>
                         </motion.div>
                       )}
