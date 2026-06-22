@@ -14,12 +14,13 @@ export default function Business() {
   const { t } = hookData;
   const [openId, setOpenId] = useState('oya');
 
-  // --- ARABIC LANGUAGE DETECTOR FIX ---
-  // This automatically checks every major React translation engine syntax pattern
-  const rawLang = hookData.locale || hookData.language || hookData.currentLang || (hookData.i18n && hookData.i18n.language);
+  // --- COMPREHENSIVE BILINGUAL STATE RESOLUTION ---
+  // Captures common React i18n variables and structures
+  const rawLang = hookData.locale || hookData.language || hookData.currentLang || (hookData.i18n && hookData.i18n.language) || 'en';
   
-  // Safely clean and resolve string to match your data keys ('en' or 'ar')
-  const activeLang = typeof rawLang === 'string' && rawLang.startsWith('ar') ? 'ar' : 'en';
+  // Clean string matching internal dictionary keys exactly ('en' or 'ar')
+  const activeLang = typeof rawLang === 'string' && rawLang.toLowerCase().startsWith('ar') ? 'ar' : 'en';
+  const isRtl = activeLang === 'ar';
 
   const services = [
     { Icon: BuildingIcon, t: 'business.svc.01_t', d: 'business.svc.01_d' },
@@ -33,7 +34,7 @@ export default function Business() {
     { Icon: WrenchIcon, t: 'business.svc.09_t', d: 'business.svc.09_d' },
   ];
 
-  // Exact data entry matching your requirements
+  // Verified Data Matrix containing complete Arabic translations
   const expItems = [
     { 
       id: 'oya', 
@@ -111,7 +112,7 @@ export default function Business() {
           </div>
           <div>
             <StaggerGroup className="services-grid">
-              {/* Row 1: 01, 02, 03 */}
+              {/* Row 1 */}
               {services.slice(0, 3).map(({ Icon, t: tk, d }, i) => (
                 <StaggerItem key={i} className="service-card">
                   <div className="service-card__icon"><Icon /></div>
@@ -120,7 +121,7 @@ export default function Business() {
                   <p className="service-card__desc">{t(d)}</p>
                 </StaggerItem>
               ))}
-              {/* Row 2: 04, 05 */}
+              {/* Row 2 */}
               {services.slice(3, 5).map(({ Icon, t: tk, d }, i) => (
                 <StaggerItem key={`r2-${i}`} className="service-card">
                   <div className="service-card__icon"><Icon /></div>
@@ -129,7 +130,6 @@ export default function Business() {
                   <p className="service-card__desc">{t(d)}</p>
                 </StaggerItem>
               ))}
-              {/* Image card 1 */}
               <StaggerItem
                 className="service-image-card"
                 style={{ backgroundImage: "url('/images/business-responsive.png')" }}
@@ -171,7 +171,8 @@ export default function Business() {
 
       {/* EXPERIENCE SECTION */}
       <Reveal>
-        <section className="experience on-dark">
+        {/* Dynamic direction setting to ensure full container adapts to right-to-left layout rules */}
+        <section className="experience on-dark" dir={isRtl ? 'rtl' : 'ltr'}>
           <div className="experience__grid">
             <div className="experience__left">
               <p className="eyebrow">{t('business.exp.eyebrow')}</p>
@@ -189,28 +190,31 @@ export default function Business() {
 
                 return (
                   <div key={item.id} className="exp-item">
-                    {/* Title Header Row Button Container with right alignment fix */}
+                    {/* Header Button using CSS logical property variants for fluid layout styling */}
                     <button
                       className="exp-item__head"
                       onClick={() => setOpenId(isOpen ? null : item.id)}
                       style={{
                         display: 'flex',
+                        flexDirection: isRtl ? 'row-reverse' : 'row',
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         width: '100%',
-                        textAlign: 'left'
+                        textAlign: isRtl ? 'right' : 'left'
                       }}
                     >
-                      <div className="exp-item__title">
-                        <span className="exp-item__num">{String(i + 1).padStart(2, '0')}.</span>
-                        {item.name[activeLang] || item.name.en}
+                      <div className="exp-item__title" style={{ textAlign: isRtl ? 'right' : 'left' }}>
+                        <span className="exp-item__num" style={{ [isRtl ? 'marginLeft' : 'marginRight']: '0.5rem' }}>
+                          {String(i + 1).padStart(2, '0')}.
+                        </span>
+                        {item.name[activeLang]}
                       </div>
-                      <span className="exp-item__toggle" style={{ marginLeft: 'auto' }}>
+                      <span className="exp-item__toggle">
                         {isOpen ? '−' : '+'}
                       </span>
                     </button>
                     
-                    {/* Expandable Info Dropdown Panel */}
+                    {/* Expandable Dropdown Content Area */}
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
@@ -220,24 +224,24 @@ export default function Business() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         >
-                          <div className="exp-item__detail-inner">
-                            {/* Row 1 Inside Panel: Metrics info display block */}
+                          <div className="exp-item__detail-inner" style={{ textAlign: isRtl ? 'right' : 'left' }}>
+                            {/* Metrics Row block component inside dropdown */}
                             {hasMetrics && (
-                              <div className="exp-item__metrics-row" style={{ display: 'flex', gap: '2rem', marginBottom: '1.25rem' }}>
+                              <div className="exp-item__metrics-row" style={{ display: 'flex', gap: '2rem', marginBottom: '1.25rem', flexDirection: isRtl ? 'row-reverse' : 'row', justifyContent: 'flex-start' }}>
                                 <div className="exp-item__growth">
-                                  <strong style={{ color: '#ff5722', marginRight: '0.25rem' }}>{item.growth}</strong>
-                                  <small style={{ color: '#a0aec0' }}>{t('business.exp.growth') || 'Growth'}</small>
+                                  <strong style={{ color: '#ff5722', [isRtl ? 'marginLeft' : 'marginRight']: '0.25rem' }}>{item.growth}</strong>
+                                  <small style={{ color: '#a0aec0' }}>{t('business.exp.growth') || (isRtl ? 'نمو' : 'Growth')}</small>
                                 </div>
                                 <div className="exp-item__sector">
-                                  <strong style={{ color: '#ffffff', marginRight: '0.25rem' }}>{item.sectorRank[activeLang] || item.sectorRank.en}</strong>
-                                  <small style={{ color: '#a0aec0' }}>{t('business.exp.top_sector') || 'in its Sector'}</small>
+                                  <strong style={{ color: '#ffffff', [isRtl ? 'marginLeft' : 'marginRight']: '0.25rem' }}>{item.sectorRank[activeLang]}</strong>
+                                  <small style={{ color: '#a0aec0' }}>{t('business.exp.top_sector') || (isRtl ? 'في قطاعه' : 'in its Sector')}</small>
                                 </div>
                               </div>
                             )}
 
-                            {/* Row 2 Inside Panel: Dynamic context description row block */}
+                            {/* Main description block text inside dropdown */}
                             <p className="exp-item__description-text" style={{ margin: 0, color: '#e2e8f0', lineHeight: '1.6' }}>
-                              {item.desc[activeLang] || item.desc.en}
+                              {item.desc[activeLang]}
                             </p>
                           </div>
                         </motion.div>
