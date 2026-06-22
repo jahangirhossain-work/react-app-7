@@ -14,12 +14,11 @@ export default function Business() {
   const { t } = hookData;
   const [openId, setOpenId] = useState('oya');
 
-  // --- ARABIC LANGUAGE DETECTOR FIX ---
-  // This automatically checks every major React translation engine syntax pattern
-  const rawLang = hookData.locale || hookData.language || hookData.currentLang || (hookData.i18n && hookData.i18n.language);
-  
-  // Safely clean and resolve string to match your data keys ('en' or 'ar')
-  const activeLang = typeof rawLang === 'string' && rawLang.startsWith('ar') ? 'ar' : 'en';
+  // --- BULLETPROOF ARABIC DETECTION ---
+  // Checks if the translated title contains Arabic characters. 
+  // This guarantees accurate detection regardless of your hook's internal naming.
+  const isArabic = /[\u0600-\u06FF]/.test(t('business.exp.title'));
+  const activeLang = isArabic ? 'ar' : 'en';
 
   const services = [
     { Icon: BuildingIcon, t: 'business.svc.01_t', d: 'business.svc.01_d' },
@@ -182,30 +181,31 @@ export default function Business() {
               </div>
             </div>
 
-            <div className="experience__list">
+            <div className="experience__list" style={{ direction: isArabic ? 'rtl' : 'ltr' }}>
               {expItems.map((item, i) => {
                 const isOpen = openId === item.id;
                 const hasMetrics = !!item.growth;
 
                 return (
                   <div key={item.id} className="exp-item">
-                    {/* Title Header Row Button Container with right alignment fix */}
+                    {/* Title Header Row Button Container with multi-language alignment fix */}
                     <button
                       className="exp-item__head"
                       onClick={() => setOpenId(isOpen ? null : item.id)}
                       style={{
                         display: 'flex',
+                        flexDirection: isArabic ? 'row-reverse' : 'row',
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         width: '100%',
-                        textAlign: 'left'
+                        textAlign: isArabic ? 'right' : 'left'
                       }}
                     >
-                      <div className="exp-item__title">
+                      <div className="exp-item__title" style={{ display: 'flex', gap: '0.5rem', flexDirection: isArabic ? 'row-reverse' : 'row' }}>
                         <span className="exp-item__num">{String(i + 1).padStart(2, '0')}.</span>
-                        {item.name[activeLang] || item.name.en}
+                        <span>{item.name[activeLang] || item.name.en}</span>
                       </div>
-                      <span className="exp-item__toggle" style={{ marginLeft: 'auto' }}>
+                      <span className="exp-item__toggle" style={{ marginBefore: 'auto' }}>
                         {isOpen ? '−' : '+'}
                       </span>
                     </button>
@@ -220,16 +220,16 @@ export default function Business() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         >
-                          <div className="exp-item__detail-inner">
+                          <div className="exp-item__detail-inner" style={{ textAlign: isArabic ? 'right' : 'left' }}>
                             {/* Row 1 Inside Panel: Metrics info display block */}
                             {hasMetrics && (
-                              <div className="exp-item__metrics-row" style={{ display: 'flex', gap: '2rem', marginBottom: '1.25rem' }}>
+                              <div className="exp-item__metrics-row" style={{ display: 'flex', gap: '2rem', marginBottom: '1.25rem', flexDirection: isArabic ? 'row-reverse' : 'row' }}>
                                 <div className="exp-item__growth">
-                                  <strong style={{ color: '#ff5722', marginRight: '0.25rem' }}>{item.growth}</strong>
+                                  <strong style={{ color: '#ff5722', [isArabic ? 'marginLeft' : 'marginRight']: '0.25rem' }}>{item.growth}</strong>
                                   <small style={{ color: '#a0aec0' }}>{t('business.exp.growth') || 'Growth'}</small>
                                 </div>
                                 <div className="exp-item__sector">
-                                  <strong style={{ color: '#ffffff', marginRight: '0.25rem' }}>{item.sectorRank[activeLang] || item.sectorRank.en}</strong>
+                                  <strong style={{ color: '#ffffff', [isArabic ? 'marginLeft' : 'marginRight']: '0.25rem' }}>{item.sectorRank[activeLang] || item.sectorRank.en}</strong>
                                   <small style={{ color: '#a0aec0' }}>{t('business.exp.top_sector') || 'in its Sector'}</small>
                                 </div>
                               </div>
