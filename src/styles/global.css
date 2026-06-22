@@ -1284,6 +1284,12 @@ html[dir='rtl'] .services-arrows button svg { transform: scaleX(-1); }
     
 .exp-logo img { height: 36px; }
 
+.experience__left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 /* =========================================================
    Leadership
    ========================================================= */
