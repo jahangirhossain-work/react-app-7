@@ -26,14 +26,67 @@ export default function Business() {
     { Icon: WrenchIcon, t: 'business.svc.09_t', d: 'business.svc.09_d' },
   ];
 
-  // Experience items — matches design comp
+// 2. Bilingual content entries added here matching image_a8ee10.png
   const expItems = [
-    { id: 'oya', name: t('business.exp.oya'), sub: t('business.exp.oya_sub'), growth: '400%', sectorRank: 'Top 10' },
-    { id: 'othaim', name: 'Othaim Holding Group', sub: '' },
-    { id: 'sdr', name: 'SDR Group', sub: '' },
-    { id: 'smartmed', name: 'Smart Med', sub: '' },
-    { id: 'smartlab', name: 'Smart Lab', sub: '' },
-    { id: 'habib', name: 'AL Habib Group', sub: '' },
+    { 
+      id: 'oya', 
+      name: { en: 'Oya Restaurant', ar: 'مطعم أويا' },
+      sub: { 
+        en: 'Operations Management, Human Resources, Administrative Affairs, and General Management', 
+        ar: 'إدارة العمليات، الموارد البشرية، الشؤون الإدارية، والإدارة العامة' 
+      },
+      growth: '400%', 
+      sectorRank: { en: 'Top 10', ar: 'أفضل 10' },
+      desc: {
+        en: 'Led complete operational and administrative restructuring with measurable growth outcomes across the F&B sector.',
+        ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الأغذية والمشروبات.'
+      }
+    },
+    { 
+      id: 'othaim', 
+      name: { en: 'Othaim Holding Group', ar: 'مجموعة العثيم القابضة' }, 
+      sub: null,
+      desc: {
+        en: 'Strategic management and operational consultation details for Othaim Holding.',
+        ar: 'تفاصيل الإدارة الاستراتيجية والاستشارات التشغيلية لمجموعة العثيم.'
+      }
+    },
+    { 
+      id: 'sdr', 
+      name: { en: 'SDR Group', ar: 'مجموعة إس دي آر' }, 
+      sub: null,
+      desc: {
+        en: 'Operational overview and business development strategies for SDR Group.',
+        ar: 'نظرة عامة على العمليات واستراتيجيات تطوير الأعمال لمجموعة إس دي آر.'
+      }
+    },
+    { 
+      id: 'smartmed', 
+      name: { en: 'Smart Med', ar: 'سمارت ميد' }, 
+      sub: null,
+      desc: {
+        en: 'Led complete operational and administrative restructuring with measurable growth outcomes across the F&B sector.',
+        ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الأغذية والمشروبات.'
+      }
+    },
+    { 
+      id: 'smartlab', 
+      name: { en: 'Smart Lab', ar: 'سمارت لاب' }, 
+      sub: null,
+      desc: {
+        en: 'Restructuring and laboratory management operations content.',
+        ar: 'عمليات إعادة الهيكلة وإدارة المختبرات.'
+      }
+    },
+    { 
+      id: 'habib', 
+      name: { en: 'AL Habib Group', ar: 'مجموعة الحبيب' }, 
+      sub: null,
+      desc: {
+        en: 'Corporate transformation and corporate efficiency management frameworks.',
+        ar: 'أطر التحول المؤسسي وإدارة كفاءة الشركات.'
+      }
+    },
   ];
 
   return (
