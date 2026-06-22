@@ -165,7 +165,7 @@ export default function Business() {
                       <span className="exp-item__toggle">{isOpen ? '−' : '+'}</span>
                     </button>
                     <AnimatePresence initial={false}>
-                      {isOpen && isFeatured && (
+                      {isOpen && (
                         <motion.div
                           className="exp-item__detail"
                           initial={{ height: 0, opacity: 0 }}
