@@ -5,13 +5,13 @@ import { SubHero, SubOverview } from '../components/SubsidiaryParts.jsx';
 import AccentText from '../components/AccentText.jsx';
 import Reveal, { StaggerGroup, StaggerItem } from '../components/Reveal.jsx';
 import {
-  ArrowLeft, ArrowRight, ArrowUpRight,
   BuildingIcon, ChartIcon, UsersIcon, SettingsIcon, TargetIcon,
   CoinsIcon, TrendingUpIcon, ShieldIcon, WrenchIcon,
 } from '../components/Icons.jsx';
 
 export default function Business() {
-  const { t } = useLanguage();
+  // 1. Destructure "locale" (or whichever active language string your hook uses, e.g., 'en' / 'ar')
+  const { t, locale } = useLanguage();
   const [openId, setOpenId] = useState('oya');
 
   const services = [
@@ -26,7 +26,7 @@ export default function Business() {
     { Icon: WrenchIcon, t: 'business.svc.09_t', d: 'business.svc.09_d' },
   ];
 
-// 2. Bilingual content entries added here matching image_a8ee10.png
+  // 2. Bilingual content entries added here matching image_a8ee10.png
   const expItems = [
     { 
       id: 'oya', 
@@ -108,12 +108,9 @@ export default function Business() {
       {/* SERVICES */}
       <section className="services-section container">
         <div className="services-layout">
-
-          {/* ---> ADD THIS NEW BLOCK HERE <--- */}
           <div>
             <p className="eyebrow">{t('sub.our_services')}</p>
           </div>
-          {/* ---> END OF NEW BLOCK <--- */}
           <div>
             <StaggerGroup className="services-grid">
               {/* Row 1: 01, 02, 03 */}
@@ -125,7 +122,7 @@ export default function Business() {
                   <p className="service-card__desc">{t(d)}</p>
                 </StaggerItem>
               ))}
-              {/* Row 2: 04, 05, 06 (06 with image overlay → use 06 + image card together) */}
+              {/* Row 2: 04, 05, 06 */}
               {services.slice(3, 5).map(({ Icon, t: tk, d }, i) => (
                 <StaggerItem key={`r2-${i}`} className="service-card">
                   <div className="service-card__icon"><Icon /></div>
@@ -134,17 +131,16 @@ export default function Business() {
                   <p className="service-card__desc">{t(d)}</p>
                 </StaggerItem>
               ))}
-              {/* Image card 1: glasses man (replaces position 6 in grid) */}
+              {/* Image card 1 */}
               <StaggerItem
                 className="service-image-card"
                 style={{ backgroundImage: "url('/images/business-responsive.png')" }}
               />
-              {/* Row 3: IMG (keffiyeh man), 07, 08 — image as col 1, service 6 omitted from numbers in design (06 was Budget Planning before; design's 06 is moved) */}
+              {/* Row 3 */}
               <StaggerItem
                 className="service-image-card"
                 style={{ backgroundImage: "url('/images/business-5.png')" }}
               />
-              {/* Services 06 (Budget Planning), 07 (Business Dev), 08 (Project Consultancy) */}
               <StaggerItem className="service-card">
                 <div className="service-card__icon">{(() => { const Icon = services[5].Icon; return <Icon />; })()}</div>
                 <p className="service-card__num">06.</p>
@@ -157,7 +153,7 @@ export default function Business() {
                 <h4 className="service-card__title">{t(services[6].t)}</h4>
                 <p className="service-card__desc">{t(services[6].d)}</p>
               </StaggerItem>
-              {/* Row 4: 08, 09 */}
+              {/* Row 4 */}
               <StaggerItem className="service-card">
                 <div className="service-card__icon">{(() => { const Icon = services[7].Icon; return <Icon />; })()}</div>
                 <p className="service-card__num">08.</p>
@@ -191,32 +187,38 @@ export default function Business() {
             <div className="experience__list">
               {expItems.map((item, i) => {
                 const isOpen = openId === item.id;
-                const isFeatured = item.id === 'oya';
+                const hasMetrics = !!item.growth; // Dynamic layout switcher check
+
                 return (
                   <div key={item.id} className="exp-item">
                     <button
-                      className={`exp-item__head ${!isFeatured ? 'exp-item__head--simple' : ''}`}
+                      className={`exp-item__head ${!hasMetrics ? 'exp-item__head--simple' : ''}`}
                       onClick={() => setOpenId(isOpen ? null : item.id)}
                     >
                       <div className="exp-item__title">
                         <span className="exp-item__num">{String(i + 1).padStart(2, '0')}.</span>
-                        {item.name}
-                        {item.sub && <span className="exp-item__sub">{item.sub}</span>}
+                        {/* 3. Uses active layout locale key here */}
+                        {item.name[locale]}
+                        {item.sub && item.sub[locale] && (
+                          <span className="exp-item__sub">{item.sub[locale]}</span>
+                        )}
                       </div>
-                      {isFeatured && (
+                      
+                      {hasMetrics && (
                         <>
                           <div className="exp-item__growth">
                             <strong>{item.growth}</strong>
                             <small>{t('business.exp.growth')}</small>
                           </div>
                           <div className="exp-item__sector">
-                            <strong>{item.sectorRank}</strong>
+                            <strong>{item.sectorRank[locale]}</strong>
                             <small>{t('business.exp.top_sector')}</small>
                           </div>
                         </>
                       )}
                       <span className="exp-item__toggle">{isOpen ? '−' : '+'}</span>
                     </button>
+                    
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
@@ -227,7 +229,8 @@ export default function Business() {
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         >
                           <div className="exp-item__detail-inner">
-                            Led complete operational and administrative restructuring with measurable growth outcomes across the F&B sector.
+                            {/* 4. Display correct locale text on open accordion items */}
+                            {item.desc[locale]}
                           </div>
                         </motion.div>
                       )}
