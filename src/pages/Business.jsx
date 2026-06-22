@@ -33,7 +33,7 @@ export default function Business() {
     { Icon: WrenchIcon, t: 'business.svc.09_t', d: 'business.svc.09_d' },
   ];
 
-  // Exact data entry matching image_a969f1.png
+  // Exact data entry matching your requirements
   const expItems = [
     { 
       id: 'oya', 
@@ -74,7 +74,7 @@ export default function Business() {
       name: { en: 'Smart Lab', ar: 'سمارت لاب' }, 
       desc: {
         en: 'Restructuring and laboratory management operations content.',
-        ar: 'عمليات إعادة الهيكلة وإدارة المختبات.'
+        ar: 'عمليات إعادة الهيكلة وإدارة المختبرات.'
       }
     },
     { 
@@ -189,19 +189,28 @@ export default function Business() {
 
                 return (
                   <div key={item.id} className="exp-item">
-                    {/* Title Header Row Button Container */}
+                    {/* Title Header Row Button Container with right alignment fix */}
                     <button
                       className="exp-item__head"
                       onClick={() => setOpenId(isOpen ? null : item.id)}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        width: '100%',
+                        textAlign: 'left'
+                      }}
                     >
                       <div className="exp-item__title">
                         <span className="exp-item__num">{String(i + 1).padStart(2, '0')}.</span>
-                        {item.name[activeLang]}
+                        {item.name[activeLang] || item.name.en}
                       </div>
-                      <span className="exp-item__toggle">{isOpen ? '−' : '+'}</span>
+                      <span className="exp-item__toggle" style={{ marginLeft: 'auto' }}>
+                        {isOpen ? '−' : '+'}
+                      </span>
                     </button>
                     
-                    {/* Expandable Info Dropdown Panel matching layout exactly */}
+                    {/* Expandable Info Dropdown Panel */}
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
@@ -220,7 +229,7 @@ export default function Business() {
                                   <small style={{ color: '#a0aec0' }}>{t('business.exp.growth') || 'Growth'}</small>
                                 </div>
                                 <div className="exp-item__sector">
-                                  <strong style={{ color: '#ffffff', marginRight: '0.25rem' }}>{item.sectorRank[activeLang]}</strong>
+                                  <strong style={{ color: '#ffffff', marginRight: '0.25rem' }}>{item.sectorRank[activeLang] || item.sectorRank.en}</strong>
                                   <small style={{ color: '#a0aec0' }}>{t('business.exp.top_sector') || 'in its Sector'}</small>
                                 </div>
                               </div>
@@ -228,7 +237,7 @@ export default function Business() {
 
                             {/* Row 2 Inside Panel: Dynamic context description row block */}
                             <p className="exp-item__description-text" style={{ margin: 0, color: '#e2e8f0', lineHeight: '1.6' }}>
-                              {item.desc[activeLang]}
+                              {item.desc[activeLang] || item.desc.en}
                             </p>
                           </div>
                         </motion.div>
