@@ -1277,7 +1277,11 @@ html[dir='rtl'] .services-arrows button svg { transform: scaleX(-1); }
 }
 .exp-item__detail-inner { padding-top: 16px; }
 
-.exp-logo { margin-top: 32px; }
+.exp-logo { 
+  margin-top: auto; /* This pushes it to the bottom */
+  padding-top: 48px; /* Safe-guard spacing so it doesn't overlap text on small screens */
+}
+    
 .exp-logo img { height: 36px; }
 
 /* =========================================================
