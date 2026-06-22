@@ -55,41 +55,6 @@ export default function Business() {
       {/* SERVICES */}
       <section className="services-section container">
         <div className="services-layout">
-          <Reveal>
-            <aside className="services-side">
-              <p className="eyebrow">{t('sub.our_services')}</p>
-              <div className="services-arrows">
-                <button
-                  type="button"
-                  aria-label="Previous service"
-                  onClick={() => setActiveTab((p) => (p - 1 + services.length) % services.length)}
-                >
-                  <ArrowLeft size={12} />
-                </button>
-                <button
-                  type="button"
-                  aria-label="Next service"
-                  onClick={() => setActiveTab((p) => (p + 1) % services.length)}
-                >
-                  <ArrowRight size={12} />
-                </button>
-              </div>
-              <div className="services-tabs">
-                {services.map((s, i) => (
-                  <button
-                    type="button"
-                    key={i}
-                    className={`services-tab ${i === activeTab ? 'is-active' : ''}`}
-                    onClick={() => setActiveTab(i)}
-                  >
-                    <span className="services-tab__num">{String(i + 1).padStart(2, '0')}.</span>
-                    {t(s.t).replace('.', '')}
-                  </button>
-                ))}
-              </div>
-            </aside>
-          </Reveal>
-
           <div>
             <StaggerGroup className="services-grid">
               {/* Row 1: 01, 02, 03 */}
