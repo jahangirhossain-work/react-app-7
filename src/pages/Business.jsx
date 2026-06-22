@@ -47,15 +47,15 @@ export default function Business() {
       name: { en: 'Othaim Holding Group', ar: 'مجموعة العثيم القابضة' }, 
       desc: {
         en: 'Led organizational restructuring and departmental management through oversight of investment,administration, and human resources.',
-        ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الشركات.'
+        ar: 'قيادة عمليات إعادة الهيكلة التنظيمية وإدارة الأقسام من خلال الإشراف على الاستثمار، والإدارة، والموارد البشرية، بهدف تعزيز الكفاءة التشغيلية ورفع مستوى الأداء المؤسسي.'
       }
     },
     { 
       id: 'sdr', 
-      name: { en: 'SDR Group', ar: 'مجموعة إس دي آر' }, 
+      name: { en: 'SDR Group', ar: 'مجموعةSDR' }, 
       desc: {
         en: 'Provision of Integrated Operations and Management Services',
-        ar: 'نظرة عامة على العمليات واستراتيجيات تطوير الأعمال لمجموعة إس دي آر.'
+        ar: 'تقديم خدمات التشغيل واإلدارة المتكاملة، بما يضمن دعم العمليات التشغيلية وتحقيق التكامل بين مختلف الوظائف الحيوية داخل المؤسسة.'
       }
     },
     { 
@@ -63,15 +63,15 @@ export default function Business() {
       name: { en: 'Smart Med', ar: 'سمارت ميد' }, 
       desc: {
         en: 'Operations Management, Human Resources, Administrative Affairs, and General Management, with Comprehensive Consultancy Services',
-        ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الأغذية والمشروبات.'
-      }
+      ar:'إدارة العمليات، والموارد البشرية، والشؤون الإدارية، والإدارة العامة، بالإضافة إلى تقديم خدمات استشارية شاملة لدعم التطوير المؤسسي وتحسين كفاءة الأداء.',
+    }
     },
     { 
       id: 'smartlab', 
-      name: { en: 'Smart Lab', ar: 'سمارت لاب' }, 
+      name: { en: 'Smart Lab', ar: 'سمارت الب' }, 
       desc: {
         en: 'Operations Management, Human Resources, Administrative Affairs, and General Management, with Comprehensive Consultancy Services',
-        ar: 'عمليات إعادة الهيكلة وإدارة المختبرات.'
+        ar: 'إدارة العمليات، والموارد البشرية، والشؤون الإدارية، والإدارة العامة، مع تقديم خدمات استشارية متكاملة تهدف إلى تحسين الأداء التشغيلي وتطوير بيئة العمل.'
       }
     },
     { 
@@ -79,7 +79,7 @@ export default function Business() {
       name: { en: 'AL Habib Group', ar: 'مجموعة الحبيب' }, 
       desc: {
         en: ' Provision of Integrated Human Resources Management Services',
-        ar: 'أطر التحول المؤسسي وإدارة كفاءة الشركات.'
+        ar: 'تقديم خدمات متكاملة في إدارة الموارد البشرية، بما يشمل تخطيط القوى العاملة، وتشغيل أنظمة الموارد البشرية، وتعزيز الكفاءة التنظيمية.'
       }
     },
   ];
