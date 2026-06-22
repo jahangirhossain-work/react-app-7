@@ -55,6 +55,12 @@ export default function Business() {
       {/* SERVICES */}
       <section className="services-section container">
         <div className="services-layout">
+
+          {/* ---> ADD THIS NEW BLOCK HERE <--- */}
+          <div>
+            <p className="eyebrow">{t('sub.our_services')}</p>
+          </div>
+          {/* ---> END OF NEW BLOCK <--- */}
           <div>
             <StaggerGroup className="services-grid">
               {/* Row 1: 01, 02, 03 */}
