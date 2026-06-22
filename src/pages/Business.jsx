@@ -198,20 +198,31 @@ export default function Business() {
                         textAlign: isArabic ? 'right' : 'left'
                       }}
                     >
-                      {/* Fixed alignment container holding number and name side-by-side */}
+                      {/* Enforced flex row layout container preventing line break issues */}
                       <div 
                         className="exp-item__title" 
                         style={{ 
-                          display: 'inline-flex', 
+                          display: 'flex !important',
+                          display: 'flex',
+                          flexDirection: 'row', 
                           alignItems: 'center',
                           gap: '0.75rem',
-                          whiteSpace: 'nowrap'
+                          textAlign: 'inherit',
+                          justifyContent: 'flex-start'
                         }}
                       >
-                        <span className="exp-item__num" style={{ margin: 0, display: 'inline-block' }}>
+                        <span 
+                          className="exp-item__num" 
+                          style={{ 
+                            margin: 0, 
+                            display: 'inline-block',
+                            float: 'none',
+                            textAlign: 'inherit'
+                          }}
+                        >
                           {String(i + 1).padStart(2, '0')}.
                         </span>
-                        <span style={{ display: 'inline-block' }}>
+                        <span style={{ display: 'inline-block', float: 'none' }}>
                           {item.name[activeLang] || item.name.en}
                         </span>
                       </div>
