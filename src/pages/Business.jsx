@@ -49,7 +49,7 @@ export default function Business() {
       id: 'othaim', 
       name: { en: 'Othaim Holding Group', ar: 'مجموعة العثيم القابضة' }, 
       desc: {
-        en: 'Led complete operational and administrative restructuring with measurable growth outcomes across the corporate sector.',
+        en: 'Led organizational restructuring and departmental management through oversight of investment,administration, and human resources.',
         ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الشركات.'
       }
     },
@@ -57,7 +57,7 @@ export default function Business() {
       id: 'sdr', 
       name: { en: 'SDR Group', ar: 'مجموعة إس دي آر' }, 
       desc: {
-        en: 'Operational overview and business development strategies for SDR Group.',
+        en: 'Provision of Integrated Operations and Management Services',
         ar: 'نظرة عامة على العمليات واستراتيجيات تطوير الأعمال لمجموعة إس دي آر.'
       }
     },
@@ -65,7 +65,7 @@ export default function Business() {
       id: 'smartmed', 
       name: { en: 'Smart Med', ar: 'سمارت ميد' }, 
       desc: {
-        en: 'Led complete operational and administrative restructuring with measurable growth outcomes across the F&B sector.',
+        en: 'Operations Management, Human Resources, Administrative Affairs, and General Management, with Comprehensive Consultancy Services',
         ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الأغذية والمشروبات.'
       }
     },
@@ -73,7 +73,7 @@ export default function Business() {
       id: 'smartlab', 
       name: { en: 'Smart Lab', ar: 'سمارت لاب' }, 
       desc: {
-        en: 'Restructuring and laboratory management operations content.',
+        en: 'Operations Management, Human Resources, Administrative Affairs, and General Management, with Comprehensive Consultancy Services',
         ar: 'عمليات إعادة الهيكلة وإدارة المختبرات.'
       }
     },
@@ -81,7 +81,7 @@ export default function Business() {
       id: 'habib', 
       name: { en: 'AL Habib Group', ar: 'مجموعة الحبيب' }, 
       desc: {
-        en: 'Corporate transformation and corporate efficiency management frameworks.',
+        en: ' Provision of Integrated Human Resources Management Services',
         ar: 'أطر التحول المؤسسي وإدارة كفاءة الشركات.'
       }
     },
