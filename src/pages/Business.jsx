@@ -10,13 +10,16 @@ import {
 } from '../components/Icons.jsx';
 
 export default function Business() {
-  // 1. Get everything available out of your custom language hook
   const hookData = useLanguage();
   const { t } = hookData;
   const [openId, setOpenId] = useState('oya');
 
-  // 2. Fallback checking: Identify what your hook actually calls the active language string
-  const activeLang = hookData.locale || hookData.language || hookData.currentLang || 'en';
+  // --- ARABIC LANGUAGE DETECTOR FIX ---
+  // This automatically checks every major React translation engine syntax pattern
+  const rawLang = hookData.locale || hookData.language || hookData.currentLang || (hookData.i18n && hookData.i18n.language);
+  
+  // Safely clean and resolve string to match your data keys ('en' or 'ar')
+  const activeLang = typeof rawLang === 'string' && rawLang.startsWith('ar') ? 'ar' : 'en';
 
   const services = [
     { Icon: BuildingIcon, t: 'business.svc.01_t', d: 'business.svc.01_d' },
@@ -30,34 +33,29 @@ export default function Business() {
     { Icon: WrenchIcon, t: 'business.svc.09_t', d: 'business.svc.09_d' },
   ];
 
+  // Exact data entry matching image_a969f1.png
   const expItems = [
     { 
       id: 'oya', 
       name: { en: 'Oya Restaurant', ar: 'مطعم أويا' },
-      sub: { 
-        en: 'Operations Management, Human Resources, Administrative Affairs, and General Management', 
-        ar: 'إدارة العمليات، الموارد البشرية، الشؤون الإدارية، والإدارة العامة' 
-      },
       growth: '400%', 
       sectorRank: { en: 'Top 10', ar: 'أفضل 10' },
       desc: {
-        en: 'Led complete operational and administrative restructuring with measurable growth outcomes across the F&B sector.',
-        ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الأغذية والمشروبات.'
+        en: 'Operations Management, Human Resources, Administrative Affairs, and General Management',
+        ar: 'إدارة العمليات، الموارد البشرية، الشؤون الإدارية، والإدارة العامة'
       }
     },
     { 
       id: 'othaim', 
       name: { en: 'Othaim Holding Group', ar: 'مجموعة العثيم القابضة' }, 
-      sub: null,
       desc: {
-        en: 'Strategic management and operational consultation details for Othaim Holding.',
-        ar: 'تفاصيل الإدارة الاستراتيجية والاستشارات التشغيلية لمجموعة العثيم.'
+        en: 'Led complete operational and administrative restructuring with measurable growth outcomes across the corporate sector.',
+        ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الشركات.'
       }
     },
     { 
       id: 'sdr', 
       name: { en: 'SDR Group', ar: 'مجموعة إس دي آر' }, 
-      sub: null,
       desc: {
         en: 'Operational overview and business development strategies for SDR Group.',
         ar: 'نظرة عامة على العمليات واستراتيجيات تطوير الأعمال لمجموعة إس دي آر.'
@@ -66,7 +64,6 @@ export default function Business() {
     { 
       id: 'smartmed', 
       name: { en: 'Smart Med', ar: 'سمارت ميد' }, 
-      sub: null,
       desc: {
         en: 'Led complete operational and administrative restructuring with measurable growth outcomes across the F&B sector.',
         ar: 'قيادة إعادة الهيكلة التشغيلية والإدارية الكاملة مع تحقيق نتائج نمو ملموسة عبر قطاع الأغذية والمشروبات.'
@@ -75,16 +72,14 @@ export default function Business() {
     { 
       id: 'smartlab', 
       name: { en: 'Smart Lab', ar: 'سمارت لاب' }, 
-      sub: null,
       desc: {
         en: 'Restructuring and laboratory management operations content.',
-        ar: 'عمليات إعادة الهيكلة وإدارة المختبرات.'
+        ar: 'عمليات إعادة الهيكلة وإدارة المختبات.'
       }
     },
     { 
       id: 'habib', 
       name: { en: 'AL Habib Group', ar: 'مجموعة الحبيب' }, 
-      sub: null,
       desc: {
         en: 'Corporate transformation and corporate efficiency management frameworks.',
         ar: 'أطر التحول المؤسسي وإدارة كفاءة الشركات.'
@@ -125,7 +120,7 @@ export default function Business() {
                   <p className="service-card__desc">{t(d)}</p>
                 </StaggerItem>
               ))}
-              {/* Row 2: 04, 05, 06 */}
+              {/* Row 2: 04, 05 */}
               {services.slice(3, 5).map(({ Icon, t: tk, d }, i) => (
                 <StaggerItem key={`r2-${i}`} className="service-card">
                   <div className="service-card__icon"><Icon /></div>
@@ -174,7 +169,7 @@ export default function Business() {
         </div>
       </section>
 
-      {/* EXPERIENCE */}
+      {/* EXPERIENCE SECTION */}
       <Reveal>
         <section className="experience on-dark">
           <div className="experience__grid">
@@ -192,41 +187,21 @@ export default function Business() {
                 const isOpen = openId === item.id;
                 const hasMetrics = !!item.growth;
 
-                // Absolute safety layout fallback resolution:
-                const determinedLang = (item.name[activeLang]) ? activeLang : 'en';
-
                 return (
                   <div key={item.id} className="exp-item">
+                    {/* Title Header Row Button Container */}
                     <button
-                      className={`exp-item__head ${!hasMetrics ? 'exp-item__head--simple' : ''}`}
+                      className="exp-item__head"
                       onClick={() => setOpenId(isOpen ? null : item.id)}
                     >
                       <div className="exp-item__title">
                         <span className="exp-item__num">{String(i + 1).padStart(2, '0')}.</span>
-                        
-                        {/* Safe Key Resolution */}
-                        {item.name[determinedLang]}
-                        
-                        {item.sub && item.sub[determinedLang] && (
-                          <span className="exp-item__sub">{item.sub[determinedLang]}</span>
-                        )}
+                        {item.name[activeLang]}
                       </div>
-                      
-                      {hasMetrics && (
-                        <>
-                          <div className="exp-item__growth">
-                            <strong>{item.growth}</strong>
-                            <small>{t('business.exp.growth')}</small>
-                          </div>
-                          <div className="exp-item__sector">
-                            <strong>{item.sectorRank[determinedLang] || item.sectorRank.en}</strong>
-                            <small>{t('business.exp.top_sector')}</small>
-                          </div>
-                        </>
-                      )}
                       <span className="exp-item__toggle">{isOpen ? '−' : '+'}</span>
                     </button>
                     
+                    {/* Expandable Info Dropdown Panel matching layout exactly */}
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
@@ -237,7 +212,24 @@ export default function Business() {
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         >
                           <div className="exp-item__detail-inner">
-                            {item.desc[determinedLang]}
+                            {/* Row 1 Inside Panel: Metrics info display block */}
+                            {hasMetrics && (
+                              <div className="exp-item__metrics-row" style={{ display: 'flex', gap: '2rem', marginBottom: '1.25rem' }}>
+                                <div className="exp-item__growth">
+                                  <strong style={{ color: '#ff5722', marginRight: '0.25rem' }}>{item.growth}</strong>
+                                  <small style={{ color: '#a0aec0' }}>{t('business.exp.growth') || 'Growth'}</small>
+                                </div>
+                                <div className="exp-item__sector">
+                                  <strong style={{ color: '#ffffff', marginRight: '0.25rem' }}>{item.sectorRank[activeLang]}</strong>
+                                  <small style={{ color: '#a0aec0' }}>{t('business.exp.top_sector') || 'in its Sector'}</small>
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Row 2 Inside Panel: Dynamic context description row block */}
+                            <p className="exp-item__description-text" style={{ margin: 0, color: '#e2e8f0', lineHeight: '1.6' }}>
+                              {item.desc[activeLang]}
+                            </p>
                           </div>
                         </motion.div>
                       )}
