@@ -198,9 +198,22 @@ export default function Business() {
                         textAlign: isArabic ? 'right' : 'left'
                       }}
                     >
-                      <div className="exp-item__title" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                        <span className="exp-item__num">{String(i + 1).padStart(2, '0')}.</span>
-                        <span>{item.name[activeLang] || item.name.en}</span>
+                      {/* Fixed alignment container holding number and name side-by-side */}
+                      <div 
+                        className="exp-item__title" 
+                        style={{ 
+                          display: 'inline-flex', 
+                          alignItems: 'center',
+                          gap: '0.75rem',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        <span className="exp-item__num" style={{ margin: 0, display: 'inline-block' }}>
+                          {String(i + 1).padStart(2, '0')}.
+                        </span>
+                        <span style={{ display: 'inline-block' }}>
+                          {item.name[activeLang] || item.name.en}
+                        </span>
                       </div>
                       <span className="exp-item__toggle">
                         {isOpen ? '−' : '+'}
